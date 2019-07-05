@@ -11,7 +11,7 @@ public interface EmployeeMapper {
     @Results(
             id="employee",
             value={
-            @Result(property = "empno",column = "emp_no"),
+            @Result(property = "id",column = "emp_no"),
             @Result(property = "birthdate",column = "birth_date"),
             @Result(property = "firstname",column = "first_name"),
             @Result(property = "lastname",column = "last_name"),
