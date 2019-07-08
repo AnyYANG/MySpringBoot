@@ -13,7 +13,9 @@ public class EmployeeService {
     private EmployeeMapper employeeMapper;
 
     @RequestMapping("/get/{id}")
-    public Employee getEmployee(@PathVariable long id){
-        return employeeMapper.findById(id);
+    public Employee getEmployee(@PathVariable long id) {
+        Employee employee = employeeMapper.findById(id);
+        System.out.println(employee.toString());
+        return  employee;
     }
 }
