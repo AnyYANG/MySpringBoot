@@ -18,8 +18,8 @@ import org.springframework.context.annotation.ComponentScan;
 @SpringBootApplication
 @EnableAutoConfiguration(exclude={DataSourceAutoConfiguration.class})
 @EnableEurekaClient
-public class CustomApplicationBoot {
+public class MyCustomApplicationBoot {
     public static void main(String args[]) {
-        SpringApplication.run(CustomApplicationBoot.class);
+        SpringApplication.run(MyCustomApplicationBoot.class);
     }
 }
