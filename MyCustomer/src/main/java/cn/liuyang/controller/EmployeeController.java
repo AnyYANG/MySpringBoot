@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.client.RestTemplate;
 
 /**
  * Created by  liuyang
@@ -14,10 +15,12 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class EmployeeController {
 
-
+    @Autowired
+    private RestTemplate restTemplate;
     @RequestMapping("/getemp/{id}")
-    public String getEmploybyid(@PathVariable long id){
-
-        return null;
+    public Object getEmploybyid(@PathVariable long id){
+        String url = "http://microservice-user/get/"+id;
+        Object result = restTemplate.getForEntity(url, Object.class);
+        return result;
     }
 }
