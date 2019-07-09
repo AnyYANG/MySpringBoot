@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class EmployeeService {
     @Autowired
     private EmployeeMapper employeeMapper;
-    @Value("server.port")
+    @Value("${server.port}")
     private String port;
     @RequestMapping("/get/{id}")
     public Employee getEmployee(@PathVariable long id) {

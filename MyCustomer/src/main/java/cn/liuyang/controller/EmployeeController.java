@@ -17,7 +17,7 @@ public class EmployeeController {
 
     @Autowired
     private RestTemplate restTemplate;
-    @RequestMapping("/getemp/{id}")
+    @RequestMapping("/getuser/{id}")
     public Object getEmploybyid(@PathVariable long id){
         String url = "http://microservice-user/get/"+id;
         Object result = restTemplate.getForEntity(url, Object.class);
