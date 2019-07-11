@@ -25,11 +25,19 @@ public class EmployeeController {
         return result;
     }
 
+
     @RequestMapping("/getinfor")
     public String getServiceInfor() {
         String url = "http://microservice-user/getinfo";
         String result = restTemplate.getForObject(url, String.class);
 
+        return result;
+    }
+
+    @RequestMapping("/port")
+    public String getMicroServicePort(){
+        String url = "http://microservice-user/getport" ;
+        String result = restTemplate.getForObject(url,String.class);
         return result;
     }
 }

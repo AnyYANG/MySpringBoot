@@ -14,10 +14,18 @@ public class EmployeeService {
     private EmployeeMapper employeeMapper;
     @Value("${server.port}")
     private String port;
+
     @RequestMapping("/get/{id}")
     public Employee getEmployee(@PathVariable long id) {
         Employee employee = employeeMapper.findById(id);
+
         return  employee;
+    }
+
+    @RequestMapping("/getport")
+    public String getPort() {
+        return port;
+
     }
     @RequestMapping("/getinfo")
     public Object getServerInfo() {
