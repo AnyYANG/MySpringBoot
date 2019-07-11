@@ -27,7 +27,8 @@ public class EmployeeController {
 
     @RequestMapping("/getinfor")
     public String getServiceInfor() {
-        String result = restTemplate.getForObject("", String.class);
+        String url = "http://microservice-user/getinfo";
+        String result = restTemplate.getForObject(url, String.class);
 
         return result;
     }
