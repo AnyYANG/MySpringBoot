@@ -17,10 +17,18 @@ public class EmployeeController {
 
     @Autowired
     private RestTemplate restTemplate;
+
     @RequestMapping("/getuser/{id}")
-    public Object getEmploybyid(@PathVariable long id){
-        String url = "http://microservice-user/get/"+id;
+    public Object getEmploybyid(@PathVariable long id) {
+        String url = "http://microservice-user/get/" + id;
         Object result = restTemplate.getForEntity(url, Object.class);
+        return result;
+    }
+
+    @RequestMapping("/getinfor")
+    public String getServiceInfor() {
+        String result = restTemplate.getForObject("", String.class);
+
         return result;
     }
 }

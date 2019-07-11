@@ -17,7 +17,10 @@ public class EmployeeService {
     @RequestMapping("/get/{id}")
     public Employee getEmployee(@PathVariable long id) {
         Employee employee = employeeMapper.findById(id);
-        System.out.println(employee.toString()+"服务器代码："+port+ "提供服务");
         return  employee;
+    }
+    @RequestMapping("/getinfo")
+    public Object getServerInfo() {
+        return  port;
     }
 }
