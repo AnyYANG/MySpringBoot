@@ -1,15 +1,14 @@
 package cn.liuyangjob.ManyThread;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.concurrent.CountDownLatch;
-
-import sun.security.jca.GetInstance;
+import com.google.common.util.concurrent.ThreadFactoryBuilder;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
-import java.util.concurrent.CountDownLatch;
+import java.util.concurrent.*;
+import java.util.concurrent.atomic.AtomicInteger;
+
+import static java.util.concurrent.TimeUnit.MILLISECONDS;
+
 
 /**
  * Created by  liuyang
@@ -22,11 +21,14 @@ import java.util.concurrent.CountDownLatch;
  * 使用LAMADA表达式单线程多线程打印
  */
 public class LamadaWithRunable {
-
+    static ExecutorService mythreadPool;
 
     static List<String> data = new ArrayList<String>();
+    static ThreadFactory myThreadFactory = new ThreadFactoryBuilder().setNameFormat("线程-demo-%d").build();
 
     static {
+
+        mythreadPool = new ThreadPoolExecutor(10, 200, 1000, MILLISECONDS, new LinkedBlockingQueue(), myThreadFactory);
         for (int i = 1; i < 2000; i++) {
             data.add("123#" + i);
         }
@@ -38,18 +40,18 @@ public class LamadaWithRunable {
 
         Long start = System.currentTimeMillis();
         LamadaWithRunable a = new LamadaWithRunable();
-       // a.printa();  //多线程
+      //  a.printa();  //多线程
         a.printb();    //单线程
         Long end = System.currentTimeMillis();
-      //  count.await();//单线程的时候 需要把这个方法给注释掉
-        System.out.println("time:"+(end - start));
+       // count.await();//单线程的时候 需要把这个方法给注释掉
+        System.out.println("time:" + (end - start));
     }
 
     //单线程打印
     public void printb() {
         data.stream().forEach((o) -> {
             saveModel(o);
-            System.out.println("*****" + o.toString());
+
         });
     }
 
@@ -57,12 +59,12 @@ public class LamadaWithRunable {
     public void printa() {
         data.stream().forEach((o) -> {
             Runnable saverun = () -> {
+                System.out.println( Thread.currentThread().getName()+"*****" + o.toString());
                 saveModel(o);
                 count.countDown();
             };
-            Thread t = new Thread(saverun);
-            t.start();
-            System.out.println("*****" + o.toString());
+            myThreadFactory.newThread(saverun).start();
+
         });
     }
 
