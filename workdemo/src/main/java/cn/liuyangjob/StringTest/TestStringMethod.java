@@ -10,7 +10,7 @@ package cn.liuyangjob.StringTest;
 public class TestStringMethod {
     public static void main(String args[]) {
 
-
+        testSpringSpilte();
     }
 
     /**
