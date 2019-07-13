@@ -18,6 +18,9 @@ import java.util.concurrent.CountDownLatch;
  * All Right Reserved by liuyang.
  **/
 
+/**
+ * 使用LAMADA表达式单线程多线程打印
+ */
 public class LamadaWithRunable {
 
 
