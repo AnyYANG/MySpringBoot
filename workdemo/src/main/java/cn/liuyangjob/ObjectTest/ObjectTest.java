@@ -16,5 +16,8 @@ public class ObjectTest {
     public static void main(String args[]) {
         Object num = 1;
         Object flag = true;
+        int count = 0;
+        count = ++count;
+        System.out.println(count);
     }
 }
