@@ -3,15 +3,9 @@ spring:
     name: microservice-custom
 server:
   port: 8081
-#eureka.client.serviceUrl.defaultZone=http://localhost:8761/eureka/
-eureka:
-  client:
-    region: beijing
-    serviceUrl:
-      defaultZone: http://liuyang:7890@localhost:8761/eureka
-  instance:
-    prefer-ip-address: true
-    instanceId: ${spring.application.name}:${spring.application.instance_id:${server.port}}
-microservice-user:
+## 取消eureka注册. 直接使用ribbon 进行负载均衡
+microservice-provider-user:
   ribbon:
+    listOfServers: localhost:8001,localhost:8002
     NFLoadBalancerRuleClassName: com.netflix.loadbalancer.RandomRule
+
