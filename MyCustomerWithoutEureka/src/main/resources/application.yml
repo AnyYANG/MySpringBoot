@@ -2,8 +2,8 @@ server:
   port: 8081
 spring:
   application:
-    name: microservice-user
-microservice-provider:
+    name: microservice-cusomter
+microservice-user:
   ribbon:
     listOfServers: localhost:8001,localhost:8002,localhost:8003,localhost:8004
     NFLoadBalancerRuleClassName: com.netflix.loadbalancer.RandomRule
