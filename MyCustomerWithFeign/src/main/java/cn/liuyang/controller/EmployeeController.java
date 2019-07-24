@@ -1,5 +1,7 @@
 package cn.liuyang.controller;
 
+import cn.liuyang.FeignClient.UserFeignClient;
+import cn.liuyang.bean.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -16,13 +18,15 @@ import org.springframework.web.client.RestTemplate;
 public class EmployeeController {
 
     @Autowired
+    private UserFeignClient userFeignClient;
+
+    @Autowired
     private RestTemplate restTemplate;
 
     @RequestMapping("/getuser/{id}")
     public Object getEmploybyid(@PathVariable long id) {
-        String url = "http://microservice-user/get/" + id;
-        Object result = restTemplate.getForEntity(url, Object.class);
-        return result;
+        User user = userFeignClient.findById(id);
+        return user;
     }
 
 
@@ -36,8 +40,6 @@ public class EmployeeController {
 
     @RequestMapping("/port")
     public String getMicroServicePort(){
-        String url = "http://microservice-user/getport" ;
-        String result = restTemplate.getForObject(url,String.class);
-        return result;
+        return userFeignClient.getPort();
     }
 }
