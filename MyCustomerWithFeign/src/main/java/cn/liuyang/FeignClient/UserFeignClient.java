@@ -12,8 +12,10 @@ import org.springframework.web.bind.annotation.RequestMethod;
  * cn.liuyang
  * All Right Reserved by liuyang.
  **/
-@FeignClient(name = "microservice-provider-user")
+@FeignClient(name = "microservice-user")
 public interface UserFeignClient {
-    @RequestMapping(value = "/{id}", method = RequestMethod.GET)
+    @RequestMapping(value = "/get/{id}", method = RequestMethod.GET)
     public User findById(@PathVariable("id") Long id);
+    @RequestMapping("/getport")
+    public String getPort();
 }
