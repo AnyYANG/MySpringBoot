@@ -7,6 +7,7 @@ package cn.liuyangjob.ManyThread;
  * All Right Reserved by liuyang.
  **/
 
+import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Semaphore;
 import java.util.concurrent.ThreadFactory;
 
@@ -15,8 +16,8 @@ import java.util.concurrent.ThreadFactory;
  */
 public class SemaphoreTest {
     public static void main(String args[]) {
-     ThreadFactory threadFactory = MyThreadFactory.getThreadFactory();
-
+        ExecutorService executorService = MyThreadFactory.getExecutorService();
+        // executorService.execute();
     }
 }
 
@@ -40,9 +41,8 @@ class SemService {
     public void doSomething() {
         try {
             semaphore.acquire();
-            System.out.println(Thread.currentThread().getName());
+            System.out.println(Thread.currentThread().getName() + System.currentTimeMillis());
             Thread.sleep(5000);
-
             semaphore.release();
         } catch (InterruptedException e) {
             e.printStackTrace();

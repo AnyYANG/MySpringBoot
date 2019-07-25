@@ -11,6 +11,9 @@ import java.util.concurrent.*;
  * All Right Reserved by liuyang.
  **/
 
+/**
+ * 这是一个单例模式的线程池
+ */
 public class MyThreadFactory {
     private MyThreadFactory() {
     }
