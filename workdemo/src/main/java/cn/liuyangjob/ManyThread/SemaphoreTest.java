@@ -8,20 +8,44 @@ package cn.liuyangjob.ManyThread;
  **/
 
 import java.util.concurrent.Semaphore;
+import java.util.concurrent.ThreadFactory;
 
 /**
  * Semaphore 是syschronized 的加强版。 控制并发线程的数量的
  */
 public class SemaphoreTest {
+    public static void main(String args[]) {
+     ThreadFactory threadFactory = MyThreadFactory.getThreadFactory();
 
-}
-class  Task implements  Runnable{
-    private Semaphore semaphore = new Semaphore(1);// 同步关键类，构造方法传入的数字是多少，则同一个时刻，只运行多少个进程同时运行制定代码
-    public Task(String name){
-        super();
     }
+}
+
+class Task implements Runnable {
+    private SemService semService;
+
+    public Task(String name, SemService semService) {
+        super();
+        this.semService = semService;
+    }
+
     @Override
     public void run() {
+        semService.doSomething();
+    }
+}
 
+class SemService {
+    private Semaphore semaphore = new Semaphore(1);
+
+    public void doSomething() {
+        try {
+            semaphore.acquire();
+            System.out.println(Thread.currentThread().getName());
+            Thread.sleep(5000);
+
+            semaphore.release();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
     }
 }
