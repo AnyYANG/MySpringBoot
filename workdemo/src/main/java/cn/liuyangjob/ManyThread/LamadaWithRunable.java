@@ -29,7 +29,6 @@ public class LamadaWithRunable {
     static ThreadFactory myThreadFactory = new ThreadFactoryBuilder().setNameFormat("线程-demo-%d").build();
 
     static {
-
         mythreadPool = new ThreadPoolExecutor(50, 200, 1000, MILLISECONDS, new LinkedBlockingQueue(), myThreadFactory);
         for (int i = 1; i < 2000; i++) {
             data.add("123#" + i);

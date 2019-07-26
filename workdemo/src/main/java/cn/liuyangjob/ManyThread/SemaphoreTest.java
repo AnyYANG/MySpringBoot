@@ -17,7 +17,7 @@ import java.util.concurrent.ThreadFactory;
 public class SemaphoreTest {
     public static void main(String args[]) {
         ExecutorService executorService = MyThreadFactory.getExecutorService();
-        // executorService.execute();
+     //   executorService.execute(Task);
     }
 }
 
@@ -36,8 +36,7 @@ class Task implements Runnable {
 }
 
 class SemService {
-    private Semaphore semaphore = new Semaphore(1);
-
+    private Semaphore semaphore = new Semaphore(10);
     public void doSomething() {
         try {
             semaphore.acquire();
