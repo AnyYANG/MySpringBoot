@@ -7,6 +7,9 @@ package cn.liuyangjob.ObjectTest;
  * All Right Reserved by liuyang.
  **/
 
+/**
+ *
+ */
 public class BooleanTest {
 
     public static void main(String[] args) {
