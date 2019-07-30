@@ -14,7 +14,7 @@ package cn.liuyangjob.ManyThread;
 /**
  * 模拟this逃逸
  * @author Lijian
- *   
+ *
  */
 public class ThisEscapeTest {
     //final常量会保证在构造器内完成初始化（但是仅限于未发生this逃逸的情况下，具体可以看多线程对final保证可见性的实现）
