@@ -15,3 +15,8 @@ eureka:
 microservice-user:
   ribbon:
     NFLoadBalancerRuleClassName: com.netflix.loadbalancer.RandomRule
+hystrix:
+  command:
+    default:
+    circuitBreaker:
+      sleepWindowInMilliseconds: 10000

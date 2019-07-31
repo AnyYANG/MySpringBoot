@@ -13,5 +13,6 @@ public class ReferenceTest {
     public static void main(String args[]) {
         String str=new String("abc");                                     // 强引用
         SoftReference<String> softRef=new SoftReference<String>(str);
+
     }
 }
