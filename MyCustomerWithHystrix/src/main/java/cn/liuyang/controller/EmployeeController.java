@@ -36,8 +36,15 @@ public class EmployeeController {
      * @return
      */
     @RequestMapping("/getuser/{id}")
-    @HystrixCommand(fallbackMethod = "requstFallBack" , commandProperties = {
-            @HystrixProperty(name = "execution.isolation.thread.timeoutInMilliseconds",value = "30000")
+    @HystrixCommand(fallbackMethod = "requstFallBack" ,
+
+            commandProperties = {
+            //请求熔断超时时间3s
+            @HystrixProperty(name = "execution.isolation.thread.timeoutInMilliseconds",value = "3000"),
+            //请求失败三次熔断  则触发熔断
+            @HystrixProperty(name="circuitBreaker.requestVolumeThreshold",value="3"),
+            //上面请求累计失败三次后进行熔断20s
+            @HystrixProperty(name="circuitBreaker.sleepWindowInMilliseconds",value="20000")
     })
     public Object getEmploybyid(@PathVariable long id) {
         Object result = getObject(id);
@@ -50,7 +57,17 @@ public class EmployeeController {
      * @return
      */
     @RequestMapping("/getuserdefault/{id}")
-    @HystrixCommand(fallbackMethod = "requstFallBack" , commandProperties = {
+    @HystrixCommand(fallbackMethod = "requstFallBack" ,
+            groupKey = "usergroup",
+            threadPoolKey = "usergourpthreadpool",
+            threadPoolProperties = {
+                    @HystrixProperty(name ="coreSize",value = "5"),
+                    @HystrixProperty(name ="maximumSize",value = "5"),
+                    @HystrixProperty(name ="maxQueueSize",value = "5"),
+                    @HystrixProperty(name ="queueSizeRejectionThreshold",value = "5")
+            },
+            commandProperties = {
+
 
     })
     public Object getEmploybyiddefault(@PathVariable long id) {
@@ -87,9 +104,12 @@ public class EmployeeController {
      * @return
      */
     private Object getObject(long id) {
-        int x = new Random().nextInt(5000);
+        int x = new Random().nextInt(1000);
         System.out.println("sleep time"+x);
         String url = "http://microservice-user/get/" + id;
+        if(id == 1000){
+            throw new RuntimeException();
+        }
         try {
             Thread.sleep(x);
         } catch (InterruptedException e) {
