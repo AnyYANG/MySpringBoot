@@ -18,5 +18,11 @@ microservice-user:
 hystrix:
   command:
     default:
-    circuitBreaker:
-      sleepWindowInMilliseconds: 10000
+      circuitBreaker:
+        sleepWindowInMilliseconds: 30000
+        ##请求失败五次之后就关门了。
+        requestVolumeThreshold: 5
+      execution:
+        isolation:
+          thread:
+            timeoutInMilliseconds: 50000
