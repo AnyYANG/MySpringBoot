@@ -19,9 +19,9 @@ import org.springframework.web.client.RestTemplate;
  * cn.liuyang
  * All Right Reserved by liuyang.
  **/
-@ComponentScan(basePackages = "cn.liuyang")
+//@ComponentScan(basePackages = "cn.liuyang")
 @SpringBootApplication
-@EnableAutoConfiguration(exclude = {DataSourceAutoConfiguration.class})
+//@EnableAutoConfiguration(exclude = {DataSourceAutoConfiguration.class})
 @EnableEurekaClient
 //@EnableDiscoveryClient
 @EnableFeignClients
