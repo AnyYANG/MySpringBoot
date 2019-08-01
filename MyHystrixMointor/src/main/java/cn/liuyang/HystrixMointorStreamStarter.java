@@ -2,7 +2,6 @@ package cn.liuyang;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.cloud.client.circuitbreaker.EnableCircuitBreaker;
 
 /**
  * Created by  liuyang
@@ -10,7 +9,7 @@ import org.springframework.cloud.client.circuitbreaker.EnableCircuitBreaker;
  * cn.liuyang
  * All Right Reserved by liuyang.
  **/
-@EnableCircuitBreaker
+
 @SpringBootApplication
 public class HystrixMointorStreamStarter {
     public static void main(String args[]) {
