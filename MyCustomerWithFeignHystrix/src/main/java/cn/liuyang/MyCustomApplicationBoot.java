@@ -26,11 +26,7 @@ import org.springframework.web.client.RestTemplate;
 //@EnableDiscoveryClient
 @EnableFeignClients
 public class MyCustomApplicationBoot {
-    @Bean
-    @LoadBalanced
-    public RestTemplate restTemplate() {
-        return new RestTemplate();
-    }
+
     public static void main(String args[]) {
         SpringApplication.run(MyCustomApplicationBoot.class);
     }
