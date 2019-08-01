@@ -10,7 +10,7 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>MyCustomerWithFeign</artifactId>
+    <artifactId>MyCustomerWithFeignHystrix</artifactId>
 
 
 
@@ -38,6 +38,7 @@
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-openfeign</artifactId>
         </dependency>
+
 
 
     </dependencies>
