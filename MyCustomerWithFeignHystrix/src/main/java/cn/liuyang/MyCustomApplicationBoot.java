@@ -20,15 +20,15 @@ import org.springframework.web.client.RestTemplate;
  * All Right Reserved by liuyang.
  **/
 //@ComponentScan(basePackages = "cn.liuyang")
-@SpringBootApplication
 //@EnableAutoConfiguration(exclude = {DataSourceAutoConfiguration.class})
-@EnableEurekaClient
 //@EnableDiscoveryClient
+@SpringBootApplication
+@EnableEurekaClient
 @EnableFeignClients
 public class MyCustomApplicationBoot {
 
     public static void main(String args[]) {
-        SpringApplication.run(MyCustomApplicationBoot.class);
+        SpringApplication.run(MyCustomApplicationBoot.class,args);
     }
 
 
