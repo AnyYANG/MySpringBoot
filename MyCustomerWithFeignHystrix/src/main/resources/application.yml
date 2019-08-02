@@ -12,10 +12,15 @@ eureka:
   instance:
     prefer-ip-address: true
     instanceId: ${spring.application.name}:${spring.application.instance_id:${server.port}}
-microservice-user:
-  ribbon:
-    NFLoadBalancerRuleClassName: com.netflix.loadbalancer.RandomRule
-    
+
 feign:
   hystrix:
     enabled: true
+
+hystrix:
+    command:
+        "xxxxxxxxxxx":
+            execution:
+                isolation:
+                    thread:
+                        timeoutInMilliseconds: 3000

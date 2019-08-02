@@ -30,13 +30,13 @@ public class EmployeeController {
     }
 
 
-    @RequestMapping("/getinfor")
+ /*   @RequestMapping("/getinfor")
     public String getServiceInfor() {
         String url = "http://microservice-user/getinfo";
         String result = restTemplate.getForObject(url, String.class);
 
         return result;
-    }
+    }*/
 
     @RequestMapping("/port")
     public String getMicroServicePort(){
