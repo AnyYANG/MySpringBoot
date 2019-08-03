@@ -24,7 +24,9 @@ public interface UserFeignClient {
 
 }
 
-
+/**
+ * 服务降级类
+ */
 @Component
 class  FeignClientFallback implements UserFeignClient {
 
