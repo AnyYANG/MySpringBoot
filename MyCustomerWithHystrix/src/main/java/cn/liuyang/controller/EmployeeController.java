@@ -62,9 +62,9 @@ public class EmployeeController {
             threadPoolKey = "usergourpthreadpool",
             threadPoolProperties = {
                     @HystrixProperty(name ="coreSize",value = "5"),
-                    @HystrixProperty(name ="maximumSize",value = "5"),
-                    @HystrixProperty(name ="maxQueueSize",value = "5"),
-                    @HystrixProperty(name ="queueSizeRejectionThreshold",value = "5")
+                    @HystrixProperty(name ="maximumSize",value = "25"),
+                    @HystrixProperty(name ="maxQueueSize",value = "25"),
+                    @HystrixProperty(name ="queueSizeRejectionThreshold",value = "50")
             },
             commandProperties = {
 

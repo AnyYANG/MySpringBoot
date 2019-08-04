@@ -26,13 +26,13 @@ public class EmployeeService {
 
     @RequestMapping("/getport")
     public String getPort() {
-        int random = new Random().nextInt(3000);
+        /*int random = new Random().nextInt(3000);
         System.out.println("Time = " + random);
         try {
             Thread.sleep(random);
         } catch (InterruptedException e) {
             e.printStackTrace();
-        }
+        }*/
         return port;
 
     }
