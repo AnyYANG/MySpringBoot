@@ -12,7 +12,7 @@ import org.springframework.cloud.netflix.turbine.EnableTurbine;
  * cn.liuyang
  * All Right Reserved by liuyang.
  **/
-@EnableCircuitBreaker
+@EnableTurbine
 @SpringBootApplication
 public class MyTurbineStarter {
     public static void main(String args[]) {

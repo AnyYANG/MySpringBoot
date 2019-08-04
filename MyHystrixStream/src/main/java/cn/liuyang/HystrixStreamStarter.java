@@ -3,6 +3,7 @@ package cn.liuyang;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.client.circuitbreaker.EnableCircuitBreaker;
+import org.springframework.cloud.netflix.hystrix.dashboard.EnableHystrixDashboard;
 
 
 /**
@@ -11,9 +12,8 @@ import org.springframework.cloud.client.circuitbreaker.EnableCircuitBreaker;
  * cn.liuyang
  * All Right Reserved by liuyang.
  **/
-@EnableCircuitBreaker
 @SpringBootApplication
-@EnableEurekaClient
+@EnableHystrixDashboard
 public class HystrixStreamStarter {
     public static void main(String args[]) {
         SpringApplication.run(HystrixStreamStarter.class,args);

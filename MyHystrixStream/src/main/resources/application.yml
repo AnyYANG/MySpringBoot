@@ -1,14 +1,2 @@
-spring:
-  application:
-    name: microservice-hystrix-stream
 server:
   port: 6080
-#eureka.client.serviceUrl.defaultZone=http://localhost:8761/eureka/
-eureka:
-  client:
-    region: beijing
-    serviceUrl:
-      defaultZone: http://liuyang:7890@localhost:8761/eureka
-  instance:
-    prefer-ip-address: true
-    instanceId: ${spring.application.name}:${spring.application.instance_id:${server.port}}

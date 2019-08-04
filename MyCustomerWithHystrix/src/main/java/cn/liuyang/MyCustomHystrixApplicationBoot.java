@@ -24,14 +24,14 @@ import org.springframework.web.client.RestTemplate;
 @EnableAutoConfiguration(exclude = {DataSourceAutoConfiguration.class})
 @EnableDiscoveryClient
 @EnableCircuitBreaker
-public class MyCustomApplicationBoot {
+public class MyCustomHystrixApplicationBoot {
     @Bean
     @LoadBalanced
     public RestTemplate restTemplate() {
         return new RestTemplate();
     }
     public static void main(String args[]) {
-        SpringApplication.run(MyCustomApplicationBoot.class);
+        SpringApplication.run(MyCustomHystrixApplicationBoot.class,args);
     }
 
 

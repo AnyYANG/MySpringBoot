@@ -2,7 +2,7 @@ spring:
   application:
     name: microservice-Turbine
 server:
-  port: 6081
+  port: 6082
 #eureka.client.serviceUrl.defaultZone=http://localhost:8761/eureka/
 eureka:
   client:
@@ -12,3 +12,6 @@ eureka:
   instance:
     prefer-ip-address: true
     instanceId: ${spring.application.name}:${spring.application.instance_id:${server.port}}
+turbine:
+  appConfig: microservice-custom,microservice-custom2
+  clusterNameExpression: "'default'"

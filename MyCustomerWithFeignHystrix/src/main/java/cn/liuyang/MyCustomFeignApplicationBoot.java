@@ -27,10 +27,10 @@ import org.springframework.web.client.RestTemplate;
 @EnableEurekaClient
 @EnableFeignClients   //feigin客户端
 @EnableCircuitBreaker //引入hystrix断路保护器
-public class MyCustomApplicationBoot {
+public class MyCustomFeignApplicationBoot {
 
     public static void main(String args[]) {
-        SpringApplication.run(MyCustomApplicationBoot.class,args);
+        SpringApplication.run(MyCustomFeignApplicationBoot.class,args);
     }
 
 
