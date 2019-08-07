@@ -1,6 +1,12 @@
 server:
   port: 7070
 spring:
-  application:  mservice-myzuul
+  application:
+    name: mservice-myzuul
 eureka:
   client:
+    server-url:
+      defaultZone: http://127.0.0.1:8761/eureka/
+
+  instance:
+    prefer-ip-address: true
