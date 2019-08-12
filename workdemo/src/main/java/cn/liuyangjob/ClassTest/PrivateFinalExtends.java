@@ -28,6 +28,9 @@ class Car extends Vehicle {
 }
 
 class Vehicle {
+    /**
+     * 如果把此处的priavte 改成其他类型的权限，则子类就会报错
+     */
     private final void run() {
         System.out.println("Vehicle");
     }
