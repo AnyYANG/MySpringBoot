@@ -1,5 +1,5 @@
 server:
-  port: 7070
+  port: 7071
 spring:
   application:
     name: mservice-myzuul
@@ -10,3 +10,6 @@ eureka:
 
   instance:
     prefer-ip-address: true
+management:
+  security:
+    enabled: false
