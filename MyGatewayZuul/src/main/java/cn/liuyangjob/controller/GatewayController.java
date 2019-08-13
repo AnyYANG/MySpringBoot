@@ -14,7 +14,7 @@ import java.util.Map;
  * Created by  liuyang
  * 2019/8/12    17:09
  * cn.liuyangjob.controller
- * All Right Reserved by liuyang.
+ * All Right Reserved by liuyang.us
  **/
 
 @RestController
@@ -23,7 +23,7 @@ public class GatewayController {
     private RestTemplate restTemplate;
 
     @ResponseBody
-    @GetMapping("/zuul/user/{id}")
+    @GetMapping("/user/{id}")
     public Map<String, Object> findbyId(@PathVariable long id)
     {
         Map<String, Object> map = new HashMap<>();
