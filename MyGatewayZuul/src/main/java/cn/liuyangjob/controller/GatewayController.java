@@ -22,7 +22,6 @@ public class GatewayController {
     @Autowired
     private RestTemplate restTemplate;
 
-    @ResponseBody
     @GetMapping("/user/{id}")
     public Map<String, Object> findbyId(@PathVariable long id)
     {
@@ -33,4 +32,16 @@ public class GatewayController {
         map.put("port",port);
         return map;
     }
+
+    @GetMapping("/custom/{id}")
+    public Map<String, Object> findcostom(@PathVariable long id)
+    {
+        Map<String, Object> map = new HashMap<>();
+        Object user = restTemplate.getForObject("http://microservice-custom/getuser/"+id,Object.class);
+        map.put("user",user);
+        Object port = restTemplate.getForObject("http://microservice-custom/port",Object.class);
+        map.put("port",port);
+        return map;
+    }
+
 }

@@ -13,3 +13,8 @@ eureka:
 management:
   security:
     enabled: false
+
+zuul:
+  ignored-services: microservice-user
+  routes:
+    microservice-user: /service/**
