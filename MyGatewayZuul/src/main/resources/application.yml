@@ -15,6 +15,7 @@ management:
     enabled: false
 
 zuul:
+  ignoredPatterns: /**/admin/**   # 忽略所有包括/admin/的路径
   ignored-services: '*'     #忽略所有微服务，只使用路由转发
   prefix: /admin/
   routes:
@@ -28,9 +29,11 @@ zuul:
     router3:
      url: http://www.baidu.com/ # 指定的url
      path: /gotobaidu    # 访问这个链接直接跳转百度
-
+    forwardrouter:
+      path: /admin/custom/**
+      url: forward:/admin/servicecustom/**
 
 # 请求日志打印级别
 logging:
   level:
-    com.netflix: INFO
+    com.netflix: DEBUG
