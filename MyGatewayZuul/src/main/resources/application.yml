@@ -15,6 +15,22 @@ management:
     enabled: false
 
 zuul:
-  ignored-services: microservice-user
+  ignored-services: '*'     #忽略所有微服务，只使用路由转发
+  prefix: /admin/
   routes:
-    microservice-user: /service/**
+    router1:
+     service-id: microservice-user
+     path: /service/**
+    router2:
+     service-id:  microservice-custom  # 微服务id
+     path : /servicecustom/**
+     strip-prefix: false
+    router3:
+     url: http://www.baidu.com/ # 指定的url
+     path: /gotobaidu    # 访问这个链接直接跳转百度
+
+
+# 请求日志打印级别
+logging:
+  level:
+    com.netflix: INFO
