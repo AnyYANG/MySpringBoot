@@ -1,11 +1,17 @@
-package main.java.cn.liuyangjob;
+package cn.liuyangjob;
+
+import javafx.application.Application;
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.cloud.config.server.EnableConfigServer;
 
 /**
  * @author liuyang
  */
-
+@SpringBootApplication
+@EnableConfigServer
 public class MyConfigServerStarter {
-    public static void main(String args[])
-    {
+    public static void main(String args[]) {
+        SpringApplication.run(MyConfigServerStarter.class,args);
     }
 }
