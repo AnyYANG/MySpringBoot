@@ -9,9 +9,9 @@ eureka:
    client:
       region: beijing
       service-url:
-         defaultZone: http://e2:8762/eureka
+         defaultZone: http://e1:8761/eureka
 server:
-  port: 8761
+  port: 8762
 
 
 
