@@ -1,6 +1,6 @@
 spring:
    application:
-      name: mservice   
+      name: eureka
 eureka:
    instance:
       app-group-name: "beijingmservice"
