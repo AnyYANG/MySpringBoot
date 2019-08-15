@@ -10,11 +10,3 @@ spring:
           git:
             uri: https://github.com/AnyYANG/MySpringBoot
             searchPaths: pro*
-
-eureka:
-  instance:
-    prefer-ip-address: true
-    instance-id: ${spring.application.name}:${server.port}
-  client:
-    service-url:
-      defaultZone: http://e1:8761/eureka,http://e2:8762/eureka
