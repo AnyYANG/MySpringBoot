@@ -1,8 +1,8 @@
 spring:
   cloud:
     config:
-      uri: http://e1:7000
+      uri: http://127.0.0.1:7000
       profile: dev
       label: master
-  application: eureka
+      name: eureka
 
