@@ -1,6 +1,6 @@
 spring:
    application:
-      name: mservice   
+      name: mservice-test-file   
 eureka:
    instance:
       app-group-name: "beijingmservice"
@@ -9,7 +9,7 @@ eureka:
    client:
       region: beijing
       service-url:
-         defaultZone: http://e2:8762/eureka
+         defaultZone: http://e1:8762/eureka
 server:
   port: 8760
 
