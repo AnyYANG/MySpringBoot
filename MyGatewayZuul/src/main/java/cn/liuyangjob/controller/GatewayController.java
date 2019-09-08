@@ -14,7 +14,7 @@ import java.util.Map;
  * Created by  liuyang
  * 2019/8/12    17:09
  * cn.liuyangjob.controller
- * All Right Reserved by liuyang.
+ * All Right Reserved by liuyang.us
  **/
 
 @RestController
@@ -22,8 +22,7 @@ public class GatewayController {
     @Autowired
     private RestTemplate restTemplate;
 
-    @ResponseBody
-    @GetMapping("/zuul/user/{id}")
+    @GetMapping("/user/{id}")
     public Map<String, Object> findbyId(@PathVariable long id)
     {
         Map<String, Object> map = new HashMap<>();
@@ -33,4 +32,16 @@ public class GatewayController {
         map.put("port",port);
         return map;
     }
+
+    @GetMapping("/custom/{id}")
+    public Map<String, Object> findcostom(@PathVariable long id)
+    {
+        Map<String, Object> map = new HashMap<>();
+        Object user = restTemplate.getForObject("http://microservice-custom/getuser/"+id,Object.class);
+        map.put("user",user);
+        Object port = restTemplate.getForObject("http://microservice-custom/port",Object.class);
+        map.put("port",port);
+        return map;
+    }
+
 }

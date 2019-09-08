@@ -1,0 +1,15 @@
+spring:
+   application:
+      name: eureka
+eureka:
+   instance:
+      app-group-name: "beijingmservice"
+      hostname: e1
+      prefer-ip-address: true
+   client:
+      region: beijing
+      service-url:
+         defaultZone: http://e2:8761/eureka
+server:
+  port: 8760
+

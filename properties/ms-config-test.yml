@@ -1,0 +1,17 @@
+spring:
+   application:
+      name: mservice
+eureka:
+   instance:
+      app-group-name: "beijingmservice"
+      hostname: e1
+      prefer-ip-address: true
+   client:
+      region: beijing
+      service-url:
+         defaultZone: http://e1:8761/eureka
+server:
+  port: 8762
+
+
+

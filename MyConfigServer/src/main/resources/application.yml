@@ -1,0 +1,12 @@
+server:
+  port: 7000
+spring:
+   application:
+      name: mservice-config-server
+   cloud:
+      config:
+        label: test     ##这里可以配置分支，默认是master的，不写的话，默认master
+        server:
+          git:
+            uri: https://github.com/AnyYANG/MySpringBoot
+            searchPaths: pro*
